@@ -1,0 +1,58 @@
+{% include 'head/head_admin.html' %}
+</head>
+<body>
+
+	{% include 'header/header_admin.html' %}
+
+	<div class="container" style="margin-top: 2%;margin-bottom: 2%">
+		<div class="card">
+			<div class="card-body">
+				<h3>Data Akun Admin</h3><hr>
+				{% with messages = get_flashed_messages(with_categories=true) %}
+				  {% if messages %}
+				    {% for category, message in messages %}
+				      {% if category == "error" %}
+				      	<div class="alert alert-danger">{{ message }}</div>
+				      {% else %}
+				      	<div class="alert alert-success">{{ message }}</div>
+				      {% endif %}
+				    {% endfor %}
+				  {% endif %}
+				{% endwith %}
+				<div class="table-responsive">
+					<table id="tabel" class="table table-bordered">
+					  <thead>
+					    <tr>
+					      <th>Username</th>
+					      <th>Tanggal Buat</th>
+					      <th>Opsi</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+
+					  	{% for row in result %}
+
+					  	<tr>
+					      <td>{{ row[1] }}</td>
+					      <td>{{ row[3] }}</td>
+					      <td>
+					      	<a href="/admin/delete-account/{{ row[0] }}" onclick="return confirm('Yakin ingin hapus akun admin ini ?')">Delete</a>
+					      </td>
+					    </tr>
+
+						{% endfor %}
+					  </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% include 'footer/footer_admin.html' %}
+<script>
+	$(document).ready(function() {
+	    $('#tabel').DataTable();
+	});
+</script>
+</body>
+</html>

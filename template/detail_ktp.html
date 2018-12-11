@@ -1,0 +1,42 @@
+{% include 'head/head_index.html' %}
+<style type="text/css">
+	#index_page{
+		background: url('{{ url_for('static', filename='images/images.jpg') }}') no-repeat fixed;
+		-webkit-background-size: 80% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100% 100%;
+	}
+</style>
+</head>
+<body id="index_page">
+
+	{% include 'header/header_index.html' %}
+
+	<div class="container" style="margin-top: 2%;margin-bottom: 2%">
+		<div class="card">
+			<div class="card-body">
+				<h3>NIK : {{ getktp['nik'] }}</h3><hr>
+				<h5>Nama : {{ getktp['nama'] }}</h5>
+				<h5>Tempat Lahir : {{ getktp['tempat_lahir'] }}</h5>
+				<h5>Tanggal Lahir : {{ getktp['tgl_lahir'] }}</h5>
+				<h5>Jenis Kelamin : {{ getktp['jk'] }}</h5>
+				<h5>Golongan Darah : {% if getktp['gol_darah'] == '' %} - {% else %} {{ getktp['gol_darah'] }} {% endif %}</h5>
+				<h5>Agama : {{ getktp['agama'] }}</h5>
+				<h5>Alamat : {% if getktp['alamat'] == '' %} - {% else %} {{ getktp['alamat'] }} {% endif %}</h5>
+				<h5>RT/RW : {% if getktp['rt_rw'] == '' %} - {% else %} {{ getktp['rt_rw'] }} {% endif %}</h5>
+				<h5>Kelurahan/Desa : {% if getktp['kel_desa'] == '' %} - {% else %} {{ getktp['kel_desa'] }} {% endif %}</h5>
+				<h5>Kecamatan : {% if getktp['kecamatan'] == '' %} - {% else %} {{ getktp['kecamatan'] }} {% endif %}</h5>
+				<h5>Status Perkawinan : {% if getktp['status_perkawinan'] == '' %} - {% else %} {{ getktp['status_perkawinan'] }} {% endif %}</h5>
+				<h5>Pekerjaan : {% if getktp['pekerjaan'] == '' %} - {% else %} {{ getktp['pekerjaan'] }} {% endif %}</h5>
+				<h5>Kewarganegaraan : {% if getktp['kewarganegaraan'] == '' %} - {% else %} {{ getktp['kewarganegaraan'] }} {% endif %}</h5>
+				<h5>Berlaku Hingga : {% if getktp['berlaku_hingga'] == '' %} - {% else %} {{ getktp['berlaku_hingga'] }} {% endif %}</h5><hr>
+
+				<a href="/" class="btn btn-outline-danger">Kembali</a>
+			</div>
+		</div>
+	</div>
+
+{% include 'footer/footer_index.html' %}
+</body>
+</html>

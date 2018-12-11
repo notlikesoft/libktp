@@ -1,0 +1,30 @@
+{% include 'head/head_admin.html' %}
+</head>
+<body>
+
+	{% include 'header/header_admin.html' %}
+
+	<div class="container" style="margin-top: 2%;margin-bottom: 2%">
+		<div class="card">
+			<div class="card-body">
+				{% for row in result %}
+
+				<div class="card">
+					<div class="card-body">
+						<h5>Nama : {{ row[1] }}</h5>
+						<h5>Email : {{ row[2] }}</h5>
+						<h6>Nomor Telepon : {{ row[3] }}</h6>
+						{{ row[4] }}<hr>
+
+						<a href="/admin/delete/inbox/{{ row[0] }}" class="btn btn-outline-secondary">Sudah di balas ?</a>
+					</div>
+				</div><br>
+
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+{% include 'footer/footer_admin.html' %}
+</body>
+</html>

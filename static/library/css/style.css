@@ -1,0 +1,16 @@
+@media (min-width: 768px) {
+	#login_admin{
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+
+	#search_ktp{
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+
+	#add_account{
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+}
